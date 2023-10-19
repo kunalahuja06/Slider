@@ -1,0 +1,10 @@
+<div class="slider">
+    <p-galleria [value]="contents" [autoPlay]="true" [circular]="true" [numVisible]="5" [transitionInterval]="20000"
+        [showThumbnails]="false">
+        <ng-template pTemplate="item" let-item>
+            <div class="image-container">
+                <span [style.background-image]="'url(' + item.url + ')'" class="image"></span>
+            </div>
+        </ng-template>
+    </p-galleria>
+</div>

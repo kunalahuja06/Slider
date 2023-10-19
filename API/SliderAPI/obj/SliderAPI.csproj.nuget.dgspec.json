@@ -4,6 +4,75 @@
     "C:\\Users\\kunal.a\\source\\repos\\Slider\\API\\SliderAPI\\SliderAPI.csproj": {}
   },
   "projects": {
+    "C:\\Users\\kunal.a\\source\\repos\\Slider\\API\\Data\\Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\kunal.a\\source\\repos\\Slider\\API\\Data\\Data.csproj",
+        "projectName": "Data",
+        "projectPath": "C:\\Users\\kunal.a\\source\\repos\\Slider\\API\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\kunal.a\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kunal.a\\source\\repos\\Slider\\API\\Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\kunal.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.18.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\kunal.a\\source\\repos\\Slider\\API\\SliderAPI\\SliderAPI.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -28,7 +97,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\kunal.a\\source\\repos\\Slider\\API\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\kunal.a\\source\\repos\\Slider\\API\\Data\\Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -45,9 +118,21 @@
               "target": "Package",
               "version": "[12.18.0, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.7, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.Identity.Web": {
+              "target": "Package",
+              "version": "[2.15.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

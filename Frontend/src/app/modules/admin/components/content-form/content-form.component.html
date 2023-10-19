@@ -1,0 +1,47 @@
+<div class="new-content">
+    <form class="new-content-form d-flex flex-column" [formGroup]="contentForm" (ngSubmit)="submit(isEditing)"
+        enctype="multipart/form-data">
+        <span class="file my-2" *ngIf="!isEditing">
+            <input type="file" name="file" id="file" class="file-picker" formControlName="files"
+                (change)="onFileSelect($event)" accept="image/*" multiple="true">
+            <div *ngIf="contentForm.get('files').hasError('required') && (contentForm.get('files').touched)"
+                class="text-danger">Upload a file.</div>
+        </span>
+        <span class="dropdown category my-2">
+            <label for="category" class="text-dark fs-6 pb-1 fw-bold">Category</label>
+            <p-dropdown formControlName="category" [options]="category" optionLabel="name" id="category"
+                (onChange)="selectCategory($event)"></p-dropdown>
+        </span>
+        <label for="timeSlot" class="text-dark fs-6 pb-1 mt-2 fw-bold">Time Slot</label>
+        <span class="slot d-flex justify-content-between mb-2" id="timeSlot">
+            <div class="start-time">
+                <p-calendar formControlName="startTime" [showTime]="true" placeholder="Start Time"
+                    [readonlyInput]="true" dateFormat="dd/mm/yy"></p-calendar>
+                <div *ngIf="contentForm.get('startTime').hasError('required') && (contentForm.get('startTime').touched || contentForm.get('startTime').dirty)"
+                    class="text-danger">
+                    Start Time is required.
+                </div>
+            </div>
+            <div class="end-time">
+                <p-calendar formControlName="endTime" [showTime]="true" placeholder="End Time"
+                    [readonlyInput]="true" dateFormat="dd/mm/yy"></p-calendar>
+                <div *ngIf="contentForm.get('endTime').hasError('required') && (contentForm.get('endTime').touched || contentForm.get('endTime').dirty)"
+                    class="text-danger">
+                    End Time is required.
+                </div>
+                <div *ngIf="contentForm.hasError('endTimeBeforeStartTime')" class="text-danger">
+                    End Time must be later than Start Time.
+                </div>
+            </div>
+            
+        </span>
+        <span class="order">
+            <label for="slideOrder" class="text-dark fs-6 pb-1 mt-2 fw-bold">Slide Order</label>
+            <input type="text" id="slideOrder" class="py-2 ps-2" formControlName="slideOrder" placeholder="Slide Order">
+        </span>
+        <div class="content-submit d-flex justify-content-center mt-5">
+            <button type="submit" class="submit-btn btn btn-primary align-self-end py-2 fw-bold mt-2 rounded-pill"
+                [disabled]="contentForm.invalid">{{isEditing?'Edit':'Add'}}</button>
+        </div>
+    </form>
+</div>

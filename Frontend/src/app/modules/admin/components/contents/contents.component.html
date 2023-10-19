@@ -1,0 +1,54 @@
+<div class="contents">
+    <div class="header d-flex justify-content-between my-3">
+        <p class="fw-bold fs-3">All contents</p>
+        <form class="filter d-flex" [formGroup]="filterOptionsForm" (ngSubmit)="filterContent()">
+            <div class="category-filter">
+                <label for="categoryFilter" class="text-dark fs-6 pb-1 fw-bold px-2">Category</label>
+                <p-dropdown placeholder="Select Category" [options]="category" optionLabel="name" id="categoryFilter"
+                    formControlName="category" (onChange)="onCategoryChange()">
+                </p-dropdown>
+            </div>
+            <div class="slot-filter">
+                <label for="slotFilter" class="text-dark fs-6 pb-1 fw-bold px-2">Time Slot</label>
+                <p-dropdown placeholder="Select Time Slot" [options]="timeSlots" id="slotFilter" formControlName="slot" (onChange)="onSlotChange()">
+                </p-dropdown>
+            </div>
+            <button type="submit" class="filter-btn btn btn-primary rounded-pill px-4 fw-bold ms-3 me-1">Filter</button>
+            <button type="reset" (click)="resetFilterOptions()" class="reset-btn btn btn-warning rounded-pill px-4 fw-bold mx-3">Reset</button>
+        </form>
+        <button class="btn btn-primary fw-bold rounded-pill px-3" (click)="showDialog(false)">Add New</button>
+    </div>
+
+    <p-carousel [value]="contents" [numVisible]="4" [numScroll]="4" [circular]="false"
+        [responsiveOptions]="responsiveOptions">
+        <ng-template let-content pTemplate="item">
+            <div class="content">
+                <p-image [src]="content.url" [preview]="true" alt="Image">
+                    <ng-template pTemplate="indicator">
+                        <div class="actions d-flex justify-content-between my-2">
+                            <button class="btn btn-warning fw-bold rounded-pill mx-2" (click)="updateContent(content)">Update</button>
+                            <button class="btn btn-danger fw-bold rounded-pill mx-2" (click)="openConfirmDeletePopup(content.id)">Delete</button>
+                        </div>
+                    </ng-template>
+                </p-image>
+                <div class="text bg-dark text-light p-2">
+                    <p class="category mb-0 fs-6 fw-bold">Category: {{content.category}}</p>
+                    <p class="slot mb-0 fw-bold">Time Slot: {{content.slot}}</p>
+                    <p class="order mb-0 fw-bold">Slide Order: {{content.slideOrder}}</p>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>
+
+<!-- new content modal -->
+<div class="new-content-modal">
+    <p-dialog [header]="modalHeader" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }"
+        [draggable]="false" [resizable]="false" (onHide)="closeDialog()">
+        <app-content-form (modalCloseEmitter)="onVisibleChange($event)" [isVisible]="visible" [isEditing]="isEditing"
+            [content]="content" (uploadSuccessEmitter)="ngOnInit()"></app-content-form>
+    </p-dialog>
+</div>
+
+<!-- delete content popup -->
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>

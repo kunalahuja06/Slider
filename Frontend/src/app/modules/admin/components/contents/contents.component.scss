@@ -1,0 +1,81 @@
+.contents{
+    .header{
+        .filter{
+            .filter-btn, .reset-btn{
+                max-height: 50px !important;
+            }
+            ::ng-deep{
+                p-dropdown{
+                    .p-dropdown{
+                        border-radius: 32px !important;
+                    }
+                }   
+            }
+        }
+    }
+   .content{
+    width:21rem;
+    border:1px solid pink;
+    border-radius: 12px;
+    ::ng-deep{
+        p-image{
+            .p-image{
+                width: 100%;
+                border-radius: 12px;
+                img{
+                    width: 100%;
+                    height:320px;
+                    border-radius: 12px;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+                .p-image-preview-indicator{
+                    border-radius: 12px;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+                .p-image-mask{
+                    display: none !important;
+                }
+            }
+        }
+    }
+    .image{
+        border-radius: 12px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        height: 350px;
+        width:100%;
+    }
+    .text{
+        border-radius: 12px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top:2px solid white;
+        .slot,.order{
+            font-size: small;
+        }
+    }
+   }
+}
+
+.new-content-modal{
+    ::ng-deep{
+        p-dialog{
+	        .p-dialog-mask{
+		        .p-dialog{
+                    height: 100vh !important;
+                    border-radius: 32px;
+                    .p-dialog-header{
+                        border-top-right-radius: 32px;
+                        border-top-left-radius: 32px;
+                    }
+                    .p-dialog-content{
+                        border-bottom-right-radius: 32px;
+                        border-bottom-left-radius: 32px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+.new-content{
+    height: 100%;
+    .new-content-form{
+        height: 100%;
+        *{
+            width:100%;
+        }
+        .content-submit{
+            .submit-btn{
+                width: 50%;
+            }
+        }
+        .file{
+            width:30%;
+            .file-picker{
+                cursor: pointer;
+            }
+        }
+        ::ng-deep{
+            .category{
+                p-dropdown{
+                    .p-dropdown{
+                        width:100%;
+                        border:1px solid black;
+                    }
+                }
+            }
+            .title{
+                .p-inputtext{
+                    border:1px solid black;
+                }
+            }
+            .start-time,.end-time{
+                p-calendar{
+                    .p-calendar{
+                        .p-datepicker{
+                            top: 0 !important;
+                            padding: 0 !important;
+                            .p-timepicker{
+                                padding-top: 0 !important;
+                                padding-bottom: 0 !important;
+                            }
+                            .p-datepicker-group-container{
+					            .p-datepicker-group{
+                                    .p-datepicker-header{
+                                        padding: 0 !important;
+                                    }
+						            .p-datepicker-calendar-container{
+								        .p-datepicker-calendar{
+                                            thead{
+                                                tr{
+                                                    th{
+                                                        padding-top: 0 !important;
+                                                        padding-bottom: 0 !important;   
+                                                    }
+                                                }
+                                            }
+									        tbody{
+										        td{
+                                                    padding: 0 !important;
+                                                    span{
+                                                        margin: 0 !important;
+                                                        height: 2rem !important;
+                                                        width:2rem !important;
+                                                    }
+                                                    .p-highlight{
+                                                        background-color: #1c6fe2 !important;
+                                                        color:#ffffff !important;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        width: 100%;
+                        .p-inputtext{
+                            border:1px solid black;
+                        }
+                    }
+                }
+            }
+            .start-time{
+                margin-right:.5rem;
+            }
+            .end-time{
+                margin-left:.5rem;
+            }
+            .order{
+                input{
+                    border-radius: 6px;
+                    border: 1px solid black;
+                    padding-left: 12px !important;
+                }
+            }
+        }
+    }
+}
